@@ -1,5 +1,4 @@
 <script>
-  // imports
   // components
   import { Button, Icon, Input, Link, Logo } from '$components';
 
