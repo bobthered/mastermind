@@ -1,5 +1,6 @@
 <script>
   // imports
+  import { theme } from '$stores';
   import { classes } from './index.js';
 
   // props (external)
@@ -13,5 +14,5 @@
   {name}
   {placeholder}
   bind:value
-  class={classes}
+  class="{classes} {$theme.contrastBgColor} {$theme.primaryRingColor} {$theme.textColor}"
 />
