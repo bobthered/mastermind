@@ -1,6 +1,21 @@
 <script>
   // imports
-  import { classes } from './index.js'
+  import { theme } from '$stores';
+  import { generateClasses } from './index.js';
+
+  // props (external)
+  export let flavor = 'secondary';
+  export let ref = undefined;
+
+  // props (dynamic)
+  $: classes = generateClasses($theme, flavor);
 </script>
 
-<button on:click class={classes.replace(/bg-blue-500\s/g,'bg-white bg-opacity-[.05] ')}><slot/></button>
+<button
+  bind:this={ref}
+  on:click
+  type="button"
+  class="{classes}{$$props.class !== undefined ? ` ${$$props.class}` : ''}"
+>
+  <slot />
+</button>
