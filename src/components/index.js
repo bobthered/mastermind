@@ -11,6 +11,7 @@ export { Modals };
 export { default as Peg } from './Peg';
 export { default as Radio } from './Radio';
 export { default as Range } from './Range';
+export { default as RouteGuarding } from './RouteGuarding';
 export { default as Scrollable } from './Scrollable';
 export { default as Spinner } from './Spinner';
 export { default as Theme } from './Theme';
