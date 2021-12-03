@@ -5,7 +5,7 @@
 
   // utilties
   const updateDuration = () => {
-    duration = Math.floor(Math.random() * 1000) + 500;
+    duration = Math.floor(Math.random() * 600) + 200;
   }
   const updatePegColor = () => {
     // get new color index
@@ -40,6 +40,6 @@
 
 <div class="flex space-x-[1rem]">
   {#each pegs as bgColor}
-    <div class="rounded-full w-[2rem] h-[2rem] transition duration-[3000ms] {bgColor}" />
+    <div class="rounded-full w-[2rem] h-[2rem] transition duration-20 {bgColor}" />
   {/each}
 </div>
