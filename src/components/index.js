@@ -15,3 +15,4 @@ export { default as RouteGuarding } from './RouteGuarding';
 export { default as Scrollable } from './Scrollable';
 export { default as Spinner } from './Spinner';
 export { default as Theme } from './Theme';
+export { default as Timer } from './Timer';
