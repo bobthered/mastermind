@@ -3,7 +3,7 @@ import adapter from '@sveltejs/adapter-auto';
 import path from 'path';
 import preprocess from 'svelte-preprocess';
 import vitePluginSocketIo from 'vite-plugin-socket-io';
-import { socketEvents } from './src/socketio/index.js';
+import { socketEvents } from './src/lib/socketio/index.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
