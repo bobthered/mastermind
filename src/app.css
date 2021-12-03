@@ -4,3 +4,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ios-safearea {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  @apply appearance-none opacity-0 w-[3rem] h-[3rem]
+}
+
+@supports(padding:max(0px)) {
+  body, header, footer {
+      padding-bottom: min(0vmin, env(safe-area-inset-bottom));
+      padding-top: min(0vmin, env(safe-area-inset-top));
+  }
+}
