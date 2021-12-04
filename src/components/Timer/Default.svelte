@@ -5,6 +5,7 @@
   // utilities
   const updateNow = () => {
     now = new Date().getTime();
+    if (pause) delay = delay - 1;
     if (exists) setTimeout(updateNow, 1000);
   };
 
@@ -16,11 +17,13 @@
   export let delay = 0;
   export let exists = false;
   export let infinite = false;
+  export let pause = false;
+  export let remaining = undefined;
   export let time = 0;
 
   // props (dynamic)
-  $: timeDelta = Math.round((now - start) / 1000);
-  $: remaining = time - delay - timeDelta;
+  $: timeDelta = Math.round((now - start) / 1000) + delay;
+  $: if ( timeDelta !== undefined ) remaining = time - timeDelta;
   $: minutes = Math.floor(remaining / 60);
   $: seconds = remaining - minutes * 60;
   $: if ( time > 1800 ) infinite = true;
