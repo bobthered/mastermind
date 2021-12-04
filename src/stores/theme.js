@@ -13,6 +13,7 @@ const defaults = {
   primaryContrastTextColor: 'text-white',
   primaryRingColor: 'ring-blue-500',
   primaryTextColor: 'text-blue-500',
+  ringColor: 'ring-white',
   textColor: 'text-white',
 }
 
@@ -33,6 +34,7 @@ const createStore = () => {
         primaryContrastTextColor: 'text-white',
         primaryRingColor: 'ring-blue-500',
         primaryTextColor: 'text-blue-500',
+        ringColor: 'ring-white',
         textColor: 'text-white',
       }
     });
@@ -102,12 +104,14 @@ const createStore = () => {
       state.bgColor = 'bg-gray-900';
       state.contrastBgColor = 'bg-white';
       state.contrastTextColor = 'text-gray-900';
+      state.ringColor = 'ring-white';
       state.textColor = 'text-white';
     }
     if (!darkMode) {
       state.bgColor = 'bg-gray-50';
       state.contrastBgColor = 'bg-gray-900';
       state.contrastTextColor = 'text-white';
+      state.ringColor = 'ring-gray-900';
       state.textColor = 'text-gray-900';
     }
     return state;
