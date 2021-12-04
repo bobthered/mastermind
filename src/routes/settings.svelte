@@ -55,7 +55,7 @@
   let submitted = false;
 </script>
 
-<Layout type="threeRows" mainClasses="p-[1rem] space-y-[3rem]" on:submit={submitHandler}>
+<Layout type="threeRows" mainClasses="p-[1rem] space-y-[3rem] flex-col" on:submit={submitHandler}>
   <!-- main area -->
   <svelte:fragment slot="main">
     <InputContainer label="Color">

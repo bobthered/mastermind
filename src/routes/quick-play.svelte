@@ -43,7 +43,7 @@
 <Layout 
   type="threeRows" 
   on:submit={submitHandler}
-  mainClasses="p-[1rem] space-y-[2rem]"
+  mainClasses="p-[1rem] space-y-[2rem] flex-col"
   bottomClasses="px-[1rem] py-[.75rem] border-t border-white border-opacity-[.1]"
 >
   <!-- main area -->
