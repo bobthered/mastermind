@@ -1,7 +1,7 @@
 <script>
   // props (external)
   export let bottomClasses = 'p-[1rem] border-t border-white border-opacity-[.1]';
-  export let mainClasses = 'p-[1rem]';
+  export let mainClasses = 'p-[1rem] flex-col';
   export let topClasses = 'p-[1rem] border-b border-white border-opacity-[.1]';
 </script>
 
@@ -12,7 +12,7 @@
   </div>
 
   <!-- main area -->
-  <div class="flex flex-col flex-grow overflow-y-auto {mainClasses}">
+  <div class="flex flex-grow overflow-y-auto {mainClasses}">
     <slot name="main" />
   </div>
   
