@@ -15,3 +15,4 @@ export const generateClasses = (color, theme, current = false) => {
 export { default as default } from './Default.svelte';
 export { default as Button } from './Button.svelte';
 export { default as Div } from './Div.svelte';
+export { default as Result } from './Result.svelte';

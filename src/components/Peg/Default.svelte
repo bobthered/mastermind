@@ -1,6 +1,6 @@
 <script>
   // components
-  import { Button, Div } from './index.js';
+  import { Button, Div, Result } from './index.js';
 
   // props (external)
   export let type = 'div';
@@ -10,4 +10,6 @@
   <Div {...$$props}><slot/></Div>
 {:else if type === 'button'}
   <Button on:click {...$$props}><slot/></Button>
+{:else if type === 'result'}
+  <Result {...$$props}><slot/></Result>
 {/if}
