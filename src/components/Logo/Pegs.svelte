@@ -26,7 +26,7 @@
 
   // props ( internal )
   const colors = ['bg-pink-500', 'bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500', 'bg-purple-500', $theme.contrastBgColor]
-  let pegs = ['bg-pink-500', 'bg-green-500', $theme.contrastBgColor, 'bg-purple-500'];
+  let pegs = [...Array(4)].map(_=>colors[Math.floor(Math.random() * colors.length)]);
   let duration = 0;
   let exists = true;
 
