@@ -9,6 +9,8 @@
   // handlers
   const submitHandler = () => {
     if (!submitted)
+      if (email === '' ) return modal.error.show('Please enter valid a valid email.')
+      if (password === '' ) return modal.error.show('Please enter valid a valid password.')
       $socket.emit('signIn', { email, password }, ({ error, settings, token }) => {
         if (error) modal.error.show(error);
         if (!error) {
