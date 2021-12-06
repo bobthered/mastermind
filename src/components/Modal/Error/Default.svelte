@@ -18,7 +18,7 @@
 </script>
 
 <Modal bind:show={$store.show}>
-  <Layout type="twoRows" mainClasses="justify-center items-center space-y-[1rem]">
+  <Layout type="twoRows" bottomClasses="" mainClasses="justify-center items-center space-y-[1rem]">
     <svelte:fragment slot="main">
       <div class="relative text-center font-semibold text-[1.5rem]">Error</div>
       <div class="text-center max-w-[21.4375rem] opacity-[.5]">
