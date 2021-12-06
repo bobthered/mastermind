@@ -6,7 +6,7 @@
   const updateNow = () => {
     now = new Date().getTime();
     if (pause) delay = delay - 1;
-    if (exists) setTimeout(updateNow, 1000);
+    if (exists && remaining > 1) setTimeout(updateNow, 1000);
   };
 
   // props (internal)
