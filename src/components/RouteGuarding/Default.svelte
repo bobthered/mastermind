@@ -4,7 +4,7 @@
   import { unguardedRoutes } from './routes';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-  import { auth, socket } from '$stores';
+  import { auth, socket, theme } from '$stores';
 
   // utilities
   const guardRoute = async() => {
@@ -16,7 +16,11 @@
       const verified = await auth.verify();
 
       // reroute if not verified
-      if (!verified) goto('/sign-in', { replaceState: true });
+      if (!verified) {
+        auth.signOut();
+        theme.reset();
+        goto('/sign-in', { replaceState: true });
+      }
     }
   }
 

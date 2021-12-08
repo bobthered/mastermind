@@ -1,10 +1,13 @@
-export const unguardedRoutes = [
+const unguardedRoutes = [
   '/',
-  '/quick-play',
   '/play',
+  '/quick-play',
   '/register',
-  '/register-confirmation',
+  '/reset-password-verify',
   '/reset-password',
-  '/reset-password-confirmation',
-  '/sign-in'
+  '/sign-in',
+  '/verify',
 ]
+
+export default unguardedRoutes
+export { unguardedRoutes };
