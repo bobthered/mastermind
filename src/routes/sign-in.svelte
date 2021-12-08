@@ -8,18 +8,25 @@
 
   // handlers
   const submitHandler = () => {
-    if (!submitted)
-      if (email === '' ) return modal.error.show('Please enter valid a valid email.')
-      if (password === '' ) return modal.error.show('Please enter valid a valid password.')
-      $socket.emit('signIn', { email, password }, ({ error, settings, token }) => {
-        if (error) modal.error.show(error);
-        if (!error) {
-          auth.set(token);
-          theme.update(settings);
-          goto('/game-modes');
-        }
-        submitted = false;
-      });
+    if (!submitted) if (email === '') return modal.error.show('Please enter valid a valid email.');
+    if (password === '') return modal.error.show('Please enter valid a valid password.');
+    $socket.emit('signIn', { email, password }, ({ error, settings, token }) => {
+      if (error) {
+        const handler =
+          error === 'User has not been verified.'
+            ? () => {
+                goto(`/verify?email=${email}`);
+              }
+            : () => {};
+        modal.error.show(error, handler);
+      }
+      if (!error) {
+        auth.set(token);
+        theme.update(settings);
+        goto('/game-modes');
+      }
+      submitted = false;
+    });
     submitted = true;
   };
 

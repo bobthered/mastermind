@@ -44,7 +44,8 @@
     </RouteGuarding>
   </div>
 
-  {#each Object.values(Modals) as Modal}
-    <Modal />
-  {/each}
+  <Modals.Error/>
+  <Modals.Lost/>
+  <Modals.Spinner/>
+  <Modals.Win/>
 </Theme>

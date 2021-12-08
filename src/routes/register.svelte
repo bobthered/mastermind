@@ -9,13 +9,9 @@
   // handlers
   const submitHandler = async () => {
     if (!submitted)
-      $socket.emit('register', { email, password }, ({ error, settings, token }) => {
+      $socket.emit('register', { email, password }, ({ error, token }) => {
         if (error) modal.error.show(error);
-        if (!error) {
-          auth.set(token);
-          theme.update(settings);
-          goto('/game-modes');
-        }
+        if (!error) goto(`/verify?email=${email}`);
         submitted = false;
       });
     submitted = true;

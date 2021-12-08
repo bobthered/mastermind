@@ -1,17 +1,34 @@
 <script>
   // import
   import { goto } from '$app/navigation';
+  import { modal, socket } from '$stores';
 
   // components
   import { Button, Input, Layout, Link } from '$components';
 
   // handlers
+  const socketHandler = ({ error }) => {
+    if (error) {
+      console.log(error);
+      modal.error.show(error);
+    }
+    if (!error) goto(`/reset-password-verify?email=${email}`);
+    submitted = false;
+  };
   const submitHandler = () => {
-    goto('/reset-password-confirmation');
+    if (!submitted) {
+      // initiate socket body
+      const body = {
+        email
+      };
+      $socket.emit('requestPasswordReset', body, socketHandler);
+      submitted = true;
+    }
   };
 
   // props (internal)
   let email = '';
+  let submitted = false;
 </script>
 
 <Layout>
@@ -26,7 +43,7 @@
       </div>
     </div>
     <Input name="email" placeholder="Enter email address" type="email" bind:value={email} />
-    <Button type="submit">Reset Password</Button>
+    <Button bind:submitted type="submit">Reset Password</Button>
     <div class="flex space-x-[.5rem] justify-center">
       <div>Remember password?</div>
       <Link href="./sign-in">Sign In</Link>
