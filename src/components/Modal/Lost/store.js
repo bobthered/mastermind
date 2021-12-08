@@ -1,10 +1,9 @@
 import { writable } from 'svelte/store';
 
-const { set, subscribe } = writable(false);
+const { subscribe, update } = writable({ code: [], show: false });
 
 export default {
-  hide: () => set(false),
-  set,
-  show: () => set(true),
+  hide: () => update(({ code }) => { return { code, show: false } }),
+  show: (code) => update(() => { return { code, show: true } }),
   subscribe
 }

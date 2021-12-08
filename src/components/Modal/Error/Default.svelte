@@ -7,6 +7,7 @@
 
   // handlers
   const clickHandler = () => {
+    $store.handler();
     store.hide();
   };
 
@@ -22,16 +23,11 @@
     <svelte:fragment slot="main">
       <div class="relative text-center font-semibold text-[1.5rem]">Error</div>
       <div class="text-center max-w-[21.4375rem] opacity-[.5]">
-        {$store.message}
+        {@html $store.message}
       </div>
     </svelte:fragment>
     <svelte:fragment slot="bottom">
-      <Button 
-        bind:ref={buttonEl} 
-        on:click={clickHandler} 
-        flavor="error" 
-        class="relative w-full"
-      >
+      <Button bind:ref={buttonEl} on:click={clickHandler} flavor="error" class="relative w-full">
         Try Again
       </Button>
     </svelte:fragment>
