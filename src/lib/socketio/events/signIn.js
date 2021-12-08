@@ -12,7 +12,7 @@ export default (io, socket) => {
 
     try {
       // find email in db
-      const user = await client.db().collection('users').findOne({ email });
+      const user = await client.db().collection('users').findOne({ banned: false, email });
 
       // error if user is null
       if (user === null) throw 'Credentials could not be verified.'
@@ -24,7 +24,10 @@ export default (io, socket) => {
       if (!compare) throw 'Credentials could not be verified.'
 
       // deconstruct user
-      const { _id, settings } = user;
+      const { _id, settings, verified } = user;
+
+      // error if status is not verified
+      if (!verified) throw 'User has not been verified.'
 
       // generate token
       const token = await sign(_id);

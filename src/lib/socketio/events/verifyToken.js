@@ -17,7 +17,7 @@ export default (io, socket) => {
       const _id = await verify(token);
 
       // find _id in db
-      const user = await client.db().collection('users').findOne({ _id: ObjectId(_id) });
+      const user = await client.db().collection('users').findOne({ _id: ObjectId(_id), banned: false, verified: true });
 
       // error if user is null
       if (user === null) throw 'Could not verify user.'

@@ -2,6 +2,7 @@
 import bcrypt from 'bcryptjs';
 import { connect } from '../../db/index.js';
 import { sign } from '../../jwt/index.js';
+import { sendVerificationCode } from '../../auth/index.js';
 
 export default (io, socket) => {
   socket.on('register', async ({ email, password }, callback) => {
@@ -28,10 +29,11 @@ export default (io, socket) => {
 
     // initiate user
     user = {
+      banned: false,
       email,
       password,
       settings,
-      status: 'verified',
+      verified: false
     }
 
     // insert into db
@@ -40,6 +42,9 @@ export default (io, socket) => {
     // generate token
     const token = await sign(_id);
 
-    return callback({ settings, token })
+    // send verification code
+    await sendVerificationCode({ _id, email });
+
+    return callback({ token })
   })
 }
