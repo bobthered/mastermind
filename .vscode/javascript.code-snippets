@@ -1,0 +1,25 @@
+{
+  "socketEvent": {
+    "prefix": "!socketEvent",
+    "body": [
+      "// imports",
+      "import { connect } from '../../db/index.js';",
+      "import { sign, verify } from '../../jwt/index.js';",
+      "import { ObjectId } from 'mongodb';",
+      "",
+      "export default (io, socket) => {",
+      "  socket.on('${1:event}', async ({ ${2:parameters} }, callback) => {",
+      "    console.log('socket.io - ${1:event}');",
+      "    ",
+      "    // connect to db",
+      "    const client = await connect();",
+      "    try {",
+      "      ",
+      "    } catch (error) {",
+      "      callback({ error })",
+      "    }",
+      "  })",
+      "}"
+    ]
+  }
+}
