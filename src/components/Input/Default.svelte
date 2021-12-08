@@ -1,6 +1,7 @@
 <script>
   // components
   import Email from './Email.svelte';
+  import Number from './Number.svelte';
   import Password from './Password.svelte';
   import Text from './Text.svelte';
 
@@ -13,6 +14,8 @@
 
 {#if type === 'email'}
   <Email {name} {placeholder} bind:value />
+{:else if type === 'number'}
+  <Number {name} {placeholder} bind:value />
 {:else if type === 'password'}
   <Password {name} {placeholder} bind:value />
 {:else if type === 'text'}
