@@ -1,9 +1,11 @@
+// import
+import { files, timestamp } from '$service-worker';
+
 // these are the routes we are going to cache for offline support
-import cacheFiles from './components/RouteGuarding/routes.js';
+import cacheRoutes from './components/RouteGuarding/routes.js';
 
 // the cache version gets updated every time there is a new deployment
-const CACHE_VERSION = 1;
-const CURRENT_CACHE = `main-${CACHE_VERSION}`;
+const CURRENT_CACHE = `main-${timestamp}`;
 
 // on activation we clean up the previously registered service workers
 self.addEventListener('activate', evt =>
@@ -24,7 +26,7 @@ self.addEventListener('activate', evt =>
 self.addEventListener('install', evt =>
   evt.waitUntil(
     caches.open(CURRENT_CACHE).then(cache => {
-      return cache.addAll(cacheFiles);
+      return cache.addAll([...cacheRoutes, ...files]);
     })
   )
 );
