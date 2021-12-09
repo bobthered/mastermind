@@ -7,7 +7,7 @@
   import '../app.css';
 
   // components
-  import { Modals, RouteGuarding, Theme } from '$components';
+  import { Modals, NetworkGuarding, RouteGuarding, Theme } from '$components';
 
   // props (dynamic)
   $: title = [
@@ -39,9 +39,11 @@
   <div
     class="min-w-screen max-h-screen max-w-screen overflow-hidden flex justify-center ios-safearea"
   >
-    <RouteGuarding>
-      <slot />
-    </RouteGuarding>
+    <NetworkGuarding>
+      <RouteGuarding>
+        <slot />
+      </RouteGuarding>
+    </NetworkGuarding>
   </div>
 
   <Modals.Error />

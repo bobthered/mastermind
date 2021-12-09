@@ -8,6 +8,7 @@ export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 import * as Modals from './Modal';
 export { Modals };
+export { default as NetworkGuarding } from './NetworkGuarding';
 export { default as Peg } from './Peg';
 export { default as Radio } from './Radio';
 export { default as Range } from './Range';
