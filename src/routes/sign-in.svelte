@@ -1,7 +1,7 @@
 <script>
   // imports
   import { goto } from '$app/navigation';
-  import { auth, modal, socket, theme } from '$stores';
+  import { auth, network, modal, socket, theme } from '$stores';
 
   // components
   import { Button, Icon, Input, Layout, Link, Logo } from '$components';
@@ -43,16 +43,18 @@
     class="flex flex-col space-y-[2rem] px-[1rem] w-full"
   >
     <Logo />
-    <div class="flex flex-col space-y-[1rem]">
-      <Input name="email" placeholder="Enter email address" type="email" bind:value={email} />
-      <Input name="password" placeholder="Enter password" type="password" bind:value={password} />
-      <Link href="./reset-password" class="self-end">Reset Password</Link>
-    </div>
-    <Button bind:submitted type="submit">Sign In</Button>
-    <div class="flex space-x-[.5rem] justify-center">
-      <div>Not a member?</div>
-      <Link href="./register">Register</Link>
-    </div>
+    {#if $network}
+      <div class="flex flex-col space-y-[1rem]">
+        <Input name="email" placeholder="Enter email address" type="email" bind:value={email} />
+        <Input name="password" placeholder="Enter password" type="password" bind:value={password} />
+        <Link href="./reset-password" class="self-end">Reset Password</Link>
+      </div>
+      <Button bind:submitted type="submit">Sign In</Button>
+      <div class="flex space-x-[.5rem] justify-center">
+        <div>Not a member?</div>
+        <Link href="./register">Register</Link>
+      </div>
+    {/if}
     <!-- <div class="text-center">or</div> -->
     <Link type="button" href="/quick-play" flavor="secondary">Quick Play</Link>
     <!-- <div class="flex space-x-[1rem] self-center">
