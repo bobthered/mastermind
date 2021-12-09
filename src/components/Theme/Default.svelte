@@ -32,6 +32,6 @@
   }
 </script>
 
-<div class="{$theme.bgColor} {$theme.textColor} font-light">
+<div class="{$theme.bgColor} {$theme.textColor} font-light ios-safearea">
   <slot/>
 </div>

@@ -37,15 +37,15 @@
 
 <Theme>
   <div
-    class="min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex justify-center ios-safearea"
+    class="min-w-screen max-h-screen max-w-screen overflow-hidden flex justify-center ios-safearea"
   >
     <RouteGuarding>
       <slot />
     </RouteGuarding>
   </div>
 
-  <Modals.Error/>
-  <Modals.Lost/>
-  <Modals.Spinner/>
-  <Modals.Win/>
+  <Modals.Error />
+  <Modals.Lost />
+  <Modals.Spinner />
+  <Modals.Win />
 </Theme>
