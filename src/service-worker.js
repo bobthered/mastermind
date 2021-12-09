@@ -1,5 +1,5 @@
 // import
-import { files, timestamp } from '$service-worker';
+import { build, files, timestamp } from '$service-worker';
 
 // these are the routes we are going to cache for offline support
 import cacheRoutes from './components/RouteGuarding/routes.js';
@@ -26,7 +26,7 @@ self.addEventListener('activate', evt =>
 self.addEventListener('install', evt =>
   evt.waitUntil(
     caches.open(CURRENT_CACHE).then(cache => {
-      return cache.addAll([...cacheRoutes, ...files]);
+      return cache.addAll([...build, ...cacheRoutes, ...files]);
     })
   )
 );
